@@ -1,0 +1,42 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+    int n;
+    cout<<"Enter the array size : ";
+    cin>>n;
+    int arr[n];
+    int maxx=0;
+    cout<<"Enter the amount Values: "<<endl;
+    //cin>>n;
+    for(int i=0;i<=n;i++)
+    {
+        cout<<"Index Number ["<<i<<"]-> ";
+        cin>>arr[i];
+    }
+    for(int i=0;i<=n;i++)
+    {
+        if(arr[i]>maxx)
+        {
+            maxx=arr[i];
+        }
+    }
+    int arr2[maxx+1]={0};
+    for(int i=0;i<=n;i++)
+    {
+        arr2[arr[i]]=arr2[arr[i]]+1;
+    }
+    cout<<" "<<endl;
+    cout<<"<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<  OUTPUT  >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"<<endl;
+    cout<<" "<<endl;
+    for(int i=0;i<maxx+1;i++)
+    {
+        if(arr2[i]!=0)
+        {
+            cout<<i<<" Occurs = "<<arr2[i]<<" times"<<endl;
+        }
+    }
+}
+
+
+
