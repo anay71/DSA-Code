@@ -1,0 +1,84 @@
+#include <iostream>
+
+using namespace std;
+
+int queue[5];
+int front = -1, rear = -1;
+
+
+bool isEmpty() {
+    return front == -1 && rear == -1;
+}
+
+
+
+bool isFull() {
+    return rear == 4;
+}
+
+
+bool enQueue(int element) {
+    if (isFull()) {
+        cout << "Queue is full. Cannot enqueue." << endl;
+        return false;
+    } else if (isEmpty()) {
+        front = rear = 0;
+    } else {
+        rear++;
+    }
+    queue[rear] = element;
+    return true;
+}
+
+
+bool deQueue() {
+    if (isEmpty()) {
+        cout << "Queue is empty. Cannot dequeue." << endl;
+        return false;
+    } else if (front == rear) {
+        front = rear = -1;
+    } else {
+        front++;
+    }
+    return true;
+}
+
+
+void frontElement() {
+    if (isEmpty()) {
+        cout << "Queue is empty." << endl;
+    } else {
+        cout << "Front element: " << queue[front] << endl;
+    }
+}
+
+
+void show() {
+    if (isEmpty()) {
+        cout << "Queue is empty." << endl;
+    } else {
+        cout << "Queue elements: ";
+        for (int i = front; i <= rear; i++) {
+            cout << queue[i] << " ";
+        }
+        cout << "\n";
+    }
+
+}
+
+int main() {
+    enQueue(10);
+    enQueue(20);
+    enQueue(30);
+    show();
+    deQueue();
+    show();
+    frontElement();
+    return 0;
+}
+
+
+
+
+
+
