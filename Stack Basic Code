@@ -1,0 +1,69 @@
+#include <iostream>
+using namespace std;
+
+const int maxSize = 10;
+
+int arr[maxSize];
+int top = -1;
+
+void push(int v) {
+    if (top < maxSize - 1) {
+	top=top+1;
+	arr[top] = v;
+        //arr[++top] = v;
+        cout << "Pushed: " << v << endl;
+    } else {
+        cout << "Stack is full" << endl;
+    }
+}
+
+void pop() {
+    if (top >= 0) {
+	cout << "Popped: " << arr[top] << endl;
+	top=top-1;
+        //cout << "Popped: " << arr[top--] << endl;
+    } else {
+        cout << "Stack is empty" << endl;
+    }
+}
+
+int getTopValue() {
+    if (top >= 0) {
+        return arr[top];
+    } else {
+        cout << "Stack is empty" << endl;
+        return -1;
+    }
+}
+
+bool isEmpty() {
+    return top == -1;
+}
+
+void showValues() {
+    if (!isEmpty()) {
+        cout << "Stack elements: ";
+        for (int i = 0; i <= top; i++) {
+            cout << arr[i] <<" ";
+        }
+        cout << endl;
+    } else {
+        cout << "Stack is empty" << endl;
+    }
+}
+
+int main() {
+    push(12);
+    push(34);
+    push(23);
+    push(12);
+    push(10);
+    showValues();
+    cout << "TOP Value: " << getTopValue() << endl;
+    pop();
+    pop();
+    pop();
+    showValues();
+    cout << "TOP Value: " << getTopValue() << endl;
+    return 0;
+}
