@@ -1,0 +1,32 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+string encode(string s, int j) {
+   for (int i = j; i < s.length(); i += j + 1) {
+      s[i] = s[i] + 7;
+   }
+   return s;
+}
+
+string decode(string s, int j) {
+   for (int i = j; i < s.length(); i += j + 1) {
+      s[i] = s[i] - 7;
+   }
+   return s;
+}
+
+int main() {
+   string input;
+   cout << "Enter a string: ";
+   getline(cin, input);
+   int jump;
+   cout << "Enter the number of characters to skip: ";
+   cin >> jump;
+   string encoded = encode(input, jump);
+   cout << "Encoded string: " << encoded << endl;
+   string decoded = decode(encoded, jump);
+   cout << "Decoded string: " << decoded << endl;
+   return 0;
+}
