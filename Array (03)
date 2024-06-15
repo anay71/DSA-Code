@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+int Array_1[] = {4,1,8,5,2,11};
+int Array_2[] = {3,6,9,10,7,4};
+int Array3[10];
+int o1=0;
+
+int n;
+
+for(int n=0; n<6; n++){
+
+    if ( Array_1[n]%2==0){
+
+    Array3[o1]=Array_1[n];
+        o1++;
+        }
+        }
+
+        for(int n=0; n<6; n++){
+        //o1=o1+1;
+    if ( Array_2[n]%2==0){
+
+        Array3[o1]=Array_2[n];
+        o1++;
+        }
+        }
+
+        for(int n=0; n<6; n++)
+            {
+            cout<<Array3[n]<<" ";
+            }
+}
+
+
+
+
+
